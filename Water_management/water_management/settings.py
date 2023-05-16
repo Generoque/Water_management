@@ -25,7 +25,7 @@ SECRET_KEY = 'wl$h!46ln%nujcpw^-pm2075^*7_q+hw^k8$g(bd=s&#b^j02('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['vercel.app']
 
 
 # Application definition
@@ -83,10 +83,22 @@ WSGI_APPLICATION = 'water_management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+#DATABASES = {
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #}
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'URL': 'DATABASE_URL',
+        'NAME': 'PGDATABASE',
+        'USER': 'PGUSER',
+        'PASSWORD': 'PGPASSWORD',
+        'HOST': 'PGHOST',
+        'PORT': PGPORT,
     }
 }
 
